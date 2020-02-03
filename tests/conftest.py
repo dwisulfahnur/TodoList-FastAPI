@@ -7,7 +7,7 @@ from db import get_database
 from dbmodels import metadata
 from main import app
 
-DATABASE_URL = "mysql://root:root@127.0.0.1/test_todolistFastapi"
+DATABASE_URL = "sqlite:///../database.sqlite"
 database = Database(DATABASE_URL, force_rollback=True)
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)

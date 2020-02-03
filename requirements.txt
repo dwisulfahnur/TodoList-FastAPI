@@ -1,4 +1,5 @@
 aiomysql==0.0.20
+aiosqlite==0.11.0
 attrs==19.3.0
 certifi==2019.11.28
 cffi==1.13.2

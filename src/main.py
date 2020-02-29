@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from db import database
-from handlers import router
+from src.db import database
+from src.handlers import router
 
 app = FastAPI(openapi_url="/api/v1/openapi.json")
 

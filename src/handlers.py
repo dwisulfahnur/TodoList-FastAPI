@@ -1,13 +1,11 @@
-from datetime import datetime
-
 import databases
 from fastapi import APIRouter, HTTPException, Depends
 from starlette import status
 
-import crud
-from db import get_database
-from dbmodels import TodoItemInDB
-from models import TodoItem, TodoItemIn
+from src import crud
+from src.db import get_database
+from src.dbmodels import TodoItemInDB
+from src.models import TodoItem, TodoItemIn
 
 router = APIRouter()
 
@@ -25,7 +23,7 @@ async def get_todo_list_api(fields: str = None):
 
 @router.post('/todos', response_model=TodoItem, status_code=status.HTTP_201_CREATED, tags=["ToDo"])
 async def create_todo_api(todo: TodoItemIn, database: databases.Database = Depends(get_database)):
-    return await crud.create_todo(todo.title, todo.description,database)
+    return await crud.create_todo(todo.title, todo.description, database)
 
 
 @router.get('/todos/{id}', status_code=status.HTTP_200_OK, tags=["ToDo"])

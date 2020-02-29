@@ -1,6 +1,6 @@
 from starlette.testclient import TestClient
 
-import crud
+from src import crud
 
 
 def test_read_list_todos(client: TestClient):

@@ -1,0 +1,30 @@
+
+FROM python:3.8.1-alpine
+
+# set work directory
+WORKDIR /code
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# copy requirements file
+COPY ./requirements.txt /code/requirements.txt
+
+# install dependencies
+RUN set -eux \
+    && apk add --no-cache --virtual .build-deps build-base \
+        libressl-dev libffi-dev gcc musl-dev python3-dev \
+        mariadb-dev mysql-client\
+    && pip install --upgrade pip setuptools wheel \
+    && pip install -r /code/requirements.txt \
+    && rm -rf /root/.cache/pip
+
+# copy project
+COPY . /code
+
+EXPOSE 8080
+
+# run server
+CMD ["chmod +x /code/scrips/entrypoint.sh"]
+CMD ["./code/scrips/entrypoint.sh"]

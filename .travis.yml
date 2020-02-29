@@ -20,7 +20,7 @@ before_script:
   - docker-compose up -d
 
 script:
-  - docker-compose exec web pytest
+  - docker-compose exec web_api pytest
 
 after_script:
   - docker-compose down

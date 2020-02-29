@@ -18,6 +18,7 @@ before_install:
 
 before_script:
   - docker-compose build
+  - apt-get install netcat-openbsd
 
 script:
   - docker-compose up -d

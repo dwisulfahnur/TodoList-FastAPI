@@ -13,7 +13,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - docker-compose up -d --build
+  - docker-compose build
 
 script:
   - docker-compose exec web pytest

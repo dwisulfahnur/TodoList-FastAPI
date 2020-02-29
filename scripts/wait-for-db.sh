@@ -3,10 +3,10 @@
 cmd="$@"
 
 
-until mysql -u "root" -p"$MYSQL_ROOT_PASSWORD" -h "$DB_HOST"; do
-  >&2 echo "Waiting for MariaDB Server..."
+echo "Waiting for MariaDB Server..."
+until mysql -p"$MYSQL_ROOT_PASSWORD" -h "$DB_HOST" -u "root" -e "\q"; do
   sleep 2
 done
 
->&2 echo "MariaDB is up - executing command"
+echo "Connected to MariaDB Server"
 exec $cmd

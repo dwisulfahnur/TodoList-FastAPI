@@ -20,6 +20,8 @@ services:
       - DATABASE_URL=mysql://root:root@db/todoListFastApi
     depends_on:
       - db
-#        condition: service_started
+    links:
+      - db
+
 volumes:
   mariadb_data:

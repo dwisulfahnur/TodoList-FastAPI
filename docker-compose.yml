@@ -16,6 +16,7 @@ services:
       - 8080:8080
     environment:
       - DB_HOST=db
+      - DB_PORT=3306
       - MYSQL_ROOT_PASSWORD=root
       - DATABASE_URL=mysql://root:root@db/todoListFastApi
     depends_on:

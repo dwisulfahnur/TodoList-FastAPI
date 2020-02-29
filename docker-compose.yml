@@ -8,14 +8,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=todoListFastApi
-    healthcheck:
-      test: ["CMD","mysql --user=root --password=root --execute \"SHOW DATABASES;\""]
-      interval: 3s
-      timeout: 1s
-      retries: 5
   web:
     build: .
-    command:  ["./scripts/wait-for-db.sh", "--","uvicorn", "src.main:app", "--reload", "--workers 1", "--host 0.0.0.0", "--port 8080"]
     volumes:
       - ./:/code
     ports:

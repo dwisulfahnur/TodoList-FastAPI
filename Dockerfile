@@ -22,9 +22,6 @@ RUN set -eux \
 
 # copy project
 COPY . /code
-
+RUN chmod +x ./scripts/wait-for-db.sh
 EXPOSE 8080
-
-# run server
-CMD ["chmod +x /code/scrips/entrypoint.sh"]
-CMD ["./code/scrips/entrypoint.sh"]
+CMD ["./scripts/wait-for-db.sh","--","uvicorn","src.main:app","--reload","--workers 1","--host 0.0.0.0","--port 8080"]

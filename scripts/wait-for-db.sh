@@ -4,7 +4,7 @@
 cmd="$@"
 
 echo "Waiting for MariaDB Server..."
-while ! nc -zv $DB_HOST $DB_PORT; do
+while ! nc -z $DB_HOST $DB_PORT; do
   sleep 0.1
 done
 

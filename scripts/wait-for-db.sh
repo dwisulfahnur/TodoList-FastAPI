@@ -1,11 +1,11 @@
 #!/bin/sh
 
+
 cmd="$@"
 
-
 echo "Waiting for MariaDB Server..."
-until mysql -u "root" -proot -h "$DB_HOST" -e "\q"; do
-  sleep 2
+while ! nc -z $DB_HOST 3306; do
+  sleep 0.1
 done
 
 echo "Connected to MariaDB Server"

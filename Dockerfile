@@ -15,7 +15,7 @@ COPY ./requirements.txt /code/requirements.txt
 RUN set -eux \
     && apk add --no-cache --virtual .build-deps build-base \
         libressl-dev libffi-dev gcc musl-dev python3-dev \
-        mariadb-dev mysql-client\
+        mariadb-dev mysql-client netcat-openbsd\
     && pip install --upgrade pip setuptools wheel \
     && pip install -r /code/requirements.txt \
     && rm -rf /root/.cache/pip

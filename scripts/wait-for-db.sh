@@ -4,7 +4,7 @@ cmd="$@"
 
 
 echo "Waiting for MariaDB Server..."
-until mysql -p"$MYSQL_ROOT_PASSWORD" -h "$DB_HOST" -u "root" -e "\q"; do
+until mysql -u "root" -proot -h "$DB_HOST" -e "\q"; do
   sleep 2
 done
 

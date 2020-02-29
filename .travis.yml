@@ -16,10 +16,8 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
-before_script:
-  - docker-compose up -d
-
 script:
+  - docker-compose up -d
   - docker-compose exec web_api pytest
 
 after_script:

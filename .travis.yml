@@ -21,7 +21,7 @@ before_script:
 
 script:
   - docker-compose up -d
-  - ./scripts/wait-for-db.sh
+  - sleep 30
   - docker-compose run web_api pytest
 
 after_script:

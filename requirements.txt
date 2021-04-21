@@ -15,7 +15,7 @@ more-itertools==8.2.0
 mysqlclient==1.4.6
 packaging==20.1
 pluggy==0.13.1
-py==1.8.1
+py==1.10.0
 pycparser==2.19
 pydantic==1.4
 PyMySQL==0.9.2
